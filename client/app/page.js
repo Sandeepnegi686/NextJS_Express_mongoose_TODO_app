@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(function () {
     async function getTodos() {
-      const res = await fetch("http://localhost:3000/api/todo/get");
+      const res = await fetch("/api/todo/get");
       const { success, data } = await res.json();
       if (success) {
         setAllTodos(data);

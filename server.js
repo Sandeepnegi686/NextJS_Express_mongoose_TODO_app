@@ -6,16 +6,16 @@ require("dotenv").config();
 
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client", "out")));
+app.use(express.static(path.resolve(__dirname, "./client/out/")));
 
-app.use(
-  cors({
-    methods: ["GET", "POST", "DELETE", "PATCH"],
-    // origin: "http://localhost:3001", //frontend origin
-    origin: "*", //frontend origin
-    credentials: true, //for cookies and header
-  })
-);
+// app.use(
+//   cors({
+//     methods: ["GET", "POST", "DELETE", "PATCH"],
+//     // origin: "http://localhost:3001", //frontend origin
+//     origin: "*", //frontend origin
+//     credentials: true, //for cookies and header
+//   })
+// );
 
 app.get("/api/todo/get", async function (req, res) {
   try {

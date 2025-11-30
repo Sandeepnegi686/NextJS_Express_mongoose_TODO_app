@@ -21,7 +21,7 @@ import { Trash2, Pencil } from "lucide-react";
 
 export default function List({ allTodos, setAllTodos, edit, setEdit }) {
   async function handleDelete(id) {
-    const res = await fetch(`http://localhost:3000/api/todo/delete/${id}`, {
+    const res = await fetch(`/api/todo/delete/${id}`, {
       method: "DELETE",
     });
     const { success } = await res.json();

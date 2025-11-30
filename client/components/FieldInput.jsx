@@ -26,7 +26,7 @@ export function FieldInput({ setAllTodos, allTodos, edit, setEdit }) {
   async function addTodo(e) {
     e.preventDefault();
     if (!todo) return;
-    const res = await fetch("http://localhost:3000/api/todo/create", {
+    const res = await fetch("/api/todo/create", {
       method: "POST",
       body: JSON.stringify({ title: todo }),
       headers: { "Content-Type": "application/json" },
@@ -44,14 +44,11 @@ export function FieldInput({ setAllTodos, allTodos, edit, setEdit }) {
 
   async function handleEditTodo(e) {
     e.preventDefault();
-    const res = await fetch(
-      `http://localhost:3000/api/todo/edit/${edit.editId}`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({ title: edit.value }),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    const res = await fetch(`/api/todo/edit/${edit.editId}`, {
+      method: "PATCH",
+      body: JSON.stringify({ title: edit.value }),
+      headers: { "Content-Type": "application/json" },
+    });
     const { success, message } = await res.json();
     if (success) {
       const todos = allTodos.map((todo) => {
