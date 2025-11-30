@@ -89,7 +89,7 @@ app.patch("/api/todo/edit/:id", async function (req, res) {
   }
 });
 
-app.listen(3000, (e) => {
+app.listen(80, (e) => {
   console.log("server started");
   mongoose
     .connect(process.env.DATABASE_URL)
